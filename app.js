@@ -17,10 +17,10 @@ $('.userInput').on('keyup',function(event) {
         let userInputArr = userInput.split(',');
         let userInputCity = userInputArr[0];
         let userInputState = userInputArr[1];
-        console.log(userInputState);
         $.get(`https://api.openbrewerydb.org/breweries/search?query=${userInputCity}`, (data) =>{
         resultsContainer.innerText = '';
         if (data.length === 0){
+            emptyResult();
             $.get(`https://api.openbrewerydb.org/breweries/search?per_page=50&query=${userInputState}`, (data) =>{
                 breweryInfo(data);})
         } else {
@@ -60,3 +60,14 @@ function breweryInfo(data) {
 }
 
 
+function emptyResult (){
+    let noResult = document.createElement('div')
+        noResult.className = 'noResult';
+        noResult.innerText = 'There are no results, here are some breweries in your state.'
+        resultsContainer.appendChild(noResult);
+}
+
+
+// want to add a map with markers of the location of the brewery
+// find geocoder api to use long and lat to find nearest locations
+//
