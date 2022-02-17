@@ -9,23 +9,22 @@ $('.userInput').on('keyup',function(event) {
         $('button').click();
         }
     });
+ 
 
-    
-
-    $('button').on("click", () => {
-        let userInput = document.querySelector('.userInput').value;
-        let userInputArr = userInput.split(',');
-        let userInputCity = userInputArr[0];
-        let userInputState = userInputArr[1];
-        $.get(`https://api.openbrewerydb.org/breweries/search?query=${userInputCity}`, (data) =>{
-        resultsContainer.innerText = '';
-        if (data.length === 0){
-            emptyResult();
-            $.get(`https://api.openbrewerydb.org/breweries/search?per_page=50&query=${userInputState}`, (data) =>{
-                breweryInfo(data);})
-        } else {
+ $('button').on("click", () => {
+    let userInput = document.querySelector('.userInput').value;
+    let userInputArr = userInput.split(',');
+    let userInputCity = userInputArr[0];
+    let userInputState = userInputArr[1];
+     $.get(`http://api.openweathermap.org/geo/1.0/direct?q=${userInputCity},${userInputState}&limit=1&appid=01167cf5eba2aa42f3459df605ceef5e`, (data) =>{
+        console.log(data)
+        let lat = data[0]['lat'];
+        let lon = data[0]['lon'];
+        // console.log(lon, lat);
+        $.get(`https://api.openbrewerydb.org/breweries?by_dist=${lat},${lon}`, (data) =>{
+            resultsContainer.innerText = '';
             breweryInfo(data);
-        }
+        })
     });
 });
 
@@ -60,12 +59,12 @@ function breweryInfo(data) {
 }
 
 
-function emptyResult (){
-    let noResult = document.createElement('div')
-        noResult.className = 'noResult';
-        noResult.innerText = 'There are no results, here are some breweries in your state.'
-        resultsContainer.appendChild(noResult);
-}
+// function emptyResult (){
+//     let noResult = document.createElement('div')
+//         noResult.className = 'noResult';
+//         noResult.innerText = 'There are no results, here are some breweries in your state.'
+//         resultsContainer.appendChild(noResult);
+// }
 
 
 // want to add a map with markers of the location of the brewery
