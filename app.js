@@ -1,6 +1,8 @@
+const userSection = document.querySelector('.userSection');
+
 const resultsContainer = document.createElement('div')
 resultsContainer.className = 'resultsContainer';
-document.body.appendChild(resultsContainer);
+userSection.appendChild(resultsContainer);
 
 
 $('.userInput').on('keyup',function(event) {
@@ -32,41 +34,35 @@ $('.userInput').on('keyup',function(event) {
 function breweryInfo(data) {
     for (let i = 0; i < data.length; i++){
         let div = document.createElement('div');
-        div.className = 'results';
+        div.className = 'resultsCard';
         resultsContainer.appendChild(div);
         let h1 = document.createElement('h1');
         h1.className = 'breweryName';
         h1.innerText = data[i]['name'];
         div.appendChild(h1);
-        let p1 = document.createElement('ul');
+        let p1 = document.createElement('p');
         p1.className = 'breweryType';
         p1.innerText = `Brewery Type: ${data[i]['brewery_type']}`;
         div.appendChild(p1);
-        let p2 = document.createElement('ul');
-        p2.className = 'BreweryPhone#';
+        let p2 = document.createElement('p');
+        p2.className = 'BreweryPhone';
         p2.innerText = `Phone Number: ${data[i]['phone']}`;
         div.appendChild(p2);
-        let p3 = document.createElement('ul');
-        p3.className = 'address';
-        p3.innerText = `Address: ${data[i]['street']}, ${data[i]['city']}, ${data[i]['state']}`;
+        let p3 = document.createElement('p');
+        p3.className = 'street';
+        p3.innerText = `Street: ${data[i]['street']}`;
         div.appendChild(p3);
-        let p4 = document.createElement('a');
-        p4.className = 'website';
-        p4.innerText = 'Website';
-        p4.href = data[i]['website_url'];
+        let p4 = document.createElement('p');
+        p4.className = 'cityState';
+        p4.innerText = `City/State: ${data[i]['city']}, ${data[i]['state']}`;
         div.appendChild(p4);
+        let p5 = document.createElement('a');
+        p5.className = 'website';
+        p5.innerText = 'Website';
+        p5.href = data[i]['website_url'];
+        div.appendChild(p5);
     }
 }
 
 
-// function emptyResult (){
-//     let noResult = document.createElement('div')
-//         noResult.className = 'noResult';
-//         noResult.innerText = 'There are no results, here are some breweries in your state.'
-//         resultsContainer.appendChild(noResult);
-// }
-
-
 // want to add a map with markers of the location of the brewery
-// find geocoder api to use long and lat to find nearest locations
-//

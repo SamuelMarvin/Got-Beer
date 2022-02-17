@@ -1,17 +1,75 @@
+html {
+    height: 100%
+}
+
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-basis: auto;
 }
 
+.app {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    align-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.menue {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    flex-shrink: 0;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 100%;
+    background-color: orange;
+}
+
+.breweries {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 100%;
+    background-color: orange;
+}
 
 .pageTitle {
     display: flex;
     align-content: center;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 800px;
     width: 100%;
+    position: relative;
+    flex-shrink: 0;
+    color: orange;
+    font-size: 150px;
+    font-weight: 800px;
+    background-image: url(https://images.squarespace-cdn.com/content/v1/5055e59ce4b02b42cb30023c/1442325163600-MOG62M7UQ1RGO0Z05VZD/image-asset.jpeg?format=2500w);
+}
+
+.beerQuote {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+    height: 200px;
+    width: 100%;
+    background-color: orange;
 }
 
 .userSection {
@@ -20,40 +78,120 @@ body {
     align-content: center;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    background-color: black;
+    position: relative;
+    flex-shrink: 0;
+    flex-basis: auto;
     width: 100%;
 }
 
+.userInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 70px;
+    font-size: xx-large;
+    background-color: orange;
+    margin: 50px;
+    border: none;
+    border-radius: 50px;
+}
 
+.userInput[type=text] {
+    padding: 30px;
+}
 
+.searchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-color: orange;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    width: 400px;
+    height: 70px;
+    border: none;
+    opacity: .7;
+    border-radius: 50px;
+}
+
+.searchButton:active {
+    /** Remove 3D Block Effect on Click **/
+    box-shadow: none;
+    top: 10px;
+    margin-bottom: 0;
+  }
+  
+  .searchButton:hover {
+    opacity: 5;
+  }
+  
 
 .resultsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    transition: width 0.5s ease-in-out;
 
-    
 }
 
-
-.results {
+.resultsCard {
     display: flex;
     justify-content: center;
-    width: 300px;
+    width: 350px;
     height: 300px;
     flex-direction: column;
     align-items: center;
     font-style: sans-serif;
     border: 3px;
     border-radius: 10px;
-    background-color: tan;
-    margin: 5px;
+    background-color: orange;
+    margin: 30px;
 }
 
 .breweryName {
     display: flex;
     justify-content: center;
     font-size: 20px;
+}
+
+
+.breweryType {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+
+.breweryPhone {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+
+.street {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.cityState {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.website {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
 }
