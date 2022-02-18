@@ -1,4 +1,4 @@
 # front-end-project
 
 
-deployed to scintillating-insect.surge.sh
+deployed to http://scintillating-insect.surge.sh/
