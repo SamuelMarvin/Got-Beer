@@ -5,6 +5,24 @@ resultsContainer.className = 'resultsContainer';
 userSection.appendChild(resultsContainer);
 
 
+const beerQutoe = document.querySelector('.beerQuote')
+beerQutoe.innerText = '“Beer, if drunk in moderation, softens the temper, cheers the spirit and promotes health.” -Thomas Jefferson';
+
+
+$('.homeB').on('click', () => {
+    $('html, body').animate({
+        scrollTop: $(".pageTitle").offset().top
+      }, 1);
+})
+
+
+$('.breweriesB').on('click', () => {
+    $('html, body').animate({
+        scrollTop: $(".userSection").offset().top
+      }, 1);
+})
+
+
 $('.userInput').on('keyup',function(event) {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -63,6 +81,9 @@ function breweryInfo(data) {
         div.appendChild(p5);
     }
 }
+
+
+
 
 
 // want to add a map with markers of the location of the brewery
