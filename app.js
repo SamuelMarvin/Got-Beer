@@ -31,12 +31,12 @@ $('.userInput').on('keyup',function(event) {
     });
  
 
- $('button').on("click", () => {
+ $('.searchButton').on("click", () => {
     let userInput = document.querySelector('.userInput').value;
     let userInputArr = userInput.split(',');
     let userInputCity = userInputArr[0];
     let userInputState = userInputArr[1];
-     $.get(`https://api.openweathermap.org/geo/1.0/direct?q=${userInputCity},${userInputState}&limit=1&appid=01167cf5eba2aa42f3459df605ceef5e`, (data) =>{
+     $.get(`https://api.openweathermap.org/geo/1.0/direct?q=$${userInputCity},$${userInputState}&limit=1&appid=01167cf5eba2aa42f3459df605ceef5e`, (data) =>{
         console.log(data)
         let lat = data[0]['lat'];
         let lon = data[0]['lon'];
